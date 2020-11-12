@@ -1,5 +1,6 @@
 <template>
   <div class="dashboard-editor-container">
+    <EchartTest />
     <github-corner class="github-corner" />
 
     <panel-group @handleSetLineChartData="handleSetLineChartData" />
@@ -50,6 +51,7 @@ import BarChart from './components/BarChart'
 import TransactionTable from './components/TransactionTable'
 import TodoList from './components/TodoList'
 import BoxCard from './components/BoxCard'
+import EchartTest from './components/EchartTest'
 
 const lineChartData = {
   newVisitis: {
@@ -81,7 +83,8 @@ export default {
     BarChart,
     TransactionTable,
     TodoList,
-    BoxCard
+    BoxCard,
+    EchartTest
   },
   data() {
     return {
