@@ -14,7 +14,6 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // do something before request is sent
-
     if (store.getters.token) {
       // let each request carry token
       // ['X-Token'] is a custom headers key
@@ -81,5 +80,32 @@ service.interceptors.response.use(
     return Promise.reject(error)
   }
 )
+
+export function post(url, data, timeout) {
+  if (timeout) {
+    service.defaults.timeout = timeout._timeout
+  } else {
+    service.defaults.timeout = 5000
+  }
+  // let config = { headers: {} };
+
+  // const getTimestamp = new Date().getTime();
+
+  // let newParams = encodeData(data)
+  const newParams = data
+  return new Promise((resolve, reject) => {
+    console.log(newParams)
+    service.post(url, newParams).then(
+      response => {
+        console.log(url)
+        resolve(response.data)
+      },
+      err => {
+        console.log(url)
+        reject(err)
+      }
+    )
+  })
+}
 
 export default service

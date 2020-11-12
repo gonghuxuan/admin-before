@@ -20,6 +20,14 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
+import { post, get } from './utils/https'
+import { article } from './api/articleAnother'
+
+Vue.prototype.$post = post
+Vue.prototype.$get = get
+Vue.prototype.$api = {
+  ...article
+}
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

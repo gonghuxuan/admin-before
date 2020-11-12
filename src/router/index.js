@@ -140,7 +140,7 @@ export const constantRoutes = [
       {
         path: '/beforeT1/index2',
         component: () => import('@/views/before-admin/BeforeT1'),
-        name: 'BeforeT1',
+        name: 'BeforeT2',
         meta: { title: 'BeforeT1', icon: 'user', noCache: true }
       }
     ]

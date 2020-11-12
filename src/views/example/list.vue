@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { fetchList } from '@/api/article'
+// import { fetchList } from '@/api/article'
 import Pagination from '@/components/Pagination' // Secondary package based on el-pagination
 
 export default {
@@ -90,10 +90,16 @@ export default {
   methods: {
     getList() {
       this.listLoading = true
-      fetchList(this.listQuery).then(response => {
+      // fetchList(this.listQuery).then(response => {
+      //   // this.list = response.data.items
+      //   // this.total = response.data.total
+      //   // this.listLoading = false
+      // })
+      this.$get(this.$api.fetchList, this.listQuery).then(response => {
         this.list = response.data.items
         this.total = response.data.total
         this.listLoading = false
+        console.log(response)
       })
     }
   }
